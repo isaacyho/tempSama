@@ -29,9 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        var e = ParseClient.loadEvents()
 
         
-        let storyboard = UIStoryboard(name: "ProjectsStoryboard", bundle: nil)
-        window?.rootViewController = storyboard.instantiateInitialViewController() as? ProjectsViewController
-        
+        let storyboard = UIStoryboard(name: "Isaac", bundle: nil)
+        window?.rootViewController = storyboard.instantiateInitialViewController() as? DoctorTableViewController
+
 //        let storyboard = UIStoryboard(name: "ProjectStoryboard", bundle: nil)
 //        window?.rootViewController = storyboard.instantiateInitialViewController() as? ProjectViewController
 

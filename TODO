@@ -1,9 +1,11 @@
-- Object model:
-*Project*
-many to many events  ( Pointer )
+Questions:
+- proper way to deserialize PFSubclassing / object relations
 
-*Event*
-many to many with project - array[]
+DonateVC:
+- erase background text on custom text field select
+- integrate apple pay
+- proper highlighting of text fields on select
 
 
-https://parse.com/questions/array-of-pointer
+
+- integrate backend for treatment objects
