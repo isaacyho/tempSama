@@ -192,10 +192,19 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cLd-yu-BF0" id="fmu-QJ-DWN">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doctor-robert" id="Fo9-LV-ft9" userLabel="mainDocView">
-                                            <rect key="frame" x="12" y="15" width="296" height="166.5"/>
+                                        <view contentMode="scaleToFill" id="bjE-fk-DYS">
+                                            <rect key="frame" x="12" y="31" width="288" height="157"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
+                                            <subviews>
+                                                <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doctor-robert" id="Fo9-LV-ft9" userLabel="mainDocView">
+                                                    <rect key="frame" x="0.0" y="-9.5" width="296" height="166.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.00098642676767679571" green="0.00098177335777907028" blue="0.00096397222990839138" alpha="1" colorSpace="calibratedRGB"/>
+                                        </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="OTk-4T-JOh">
                                             <rect key="frame" x="234" y="140" width="56" height="22.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -223,7 +232,7 @@
                                             <rect key="frame" x="26" y="67" width="192" height="31"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                            <color key="textColor" red="0.92808948863636365" green="0.92808948863636365" blue="0.92808948863636365" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.81451231060606055" green="0.81451231060606055" blue="0.81451231060606055" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1000 raised of $1000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DFT-Li-km0">

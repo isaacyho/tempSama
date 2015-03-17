@@ -1,11 +1,17 @@
 Questions:
 - proper way to deserialize PFSubclassing / object relations
 
-DonateVC:
-- erase background text on custom text field select
-- integrate apple pay
-- proper highlighting of text fields on select
+
+/// need to add to Project:
+/// - treatmentCost
+
+- after 'pay': show confirmation, dismiss'
+- donate page: add doctor thumbnail icon / project title
+- autolayout
+- DoctorVC: circular thumbnail
+- integrate Ryan's progress bar
 
 
 
-- integrate backend for treatment objects
+
+git push isaac master

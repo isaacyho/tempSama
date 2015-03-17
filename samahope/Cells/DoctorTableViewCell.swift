@@ -31,6 +31,19 @@ class DoctorTableViewCell: UITableViewCell {
         fundingProgressLabel.text = "$\(doctor!.amountFunded!) raised out of $\(doctor!.amountNeeded!)"
         var p = Double(doctor!.amountFunded!) / Double( doctor!.amountNeeded! )
         fundingProgressView.setProgress( Float(p), animated:false )
+        
+        let url = NSURL(string: doctor!.bannerPicUrl! )
+        let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
+        doctorMainImageView.image = UIImage(data: data!)
+        
+        let url2 = NSURL(string: doctor!.thumbnailPicUrl! )
+        let data2 = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
+        doctorThumbnailView.image = UIImage(data: data2!)
+        
+        let url3 = NSURL(string: doctor!.treatment!.iconPicUrl!)
+        let data3 = NSData(contentsOfURL: url3!)
+        treatmentImageView.image = UIImage(data: data3!)
+    
     }
 
     override func awakeFromNib() {

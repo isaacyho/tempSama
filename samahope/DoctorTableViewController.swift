@@ -9,22 +9,27 @@
 import UIKit
 
 class DoctorTableViewController: UITableViewController {
-    var doctors: [Doctor]?
-    var names = ["Dr. Robert Smigel", "Captain Comeback", "Prof. Longhair", "Jimmy the Greek", "Fred Flinstone" ]
+    var events: [Event]? // XXX previous controller must set this!!!
+    
+    var doctors: [Doctor]? // internally we use Doctors converted from Projects
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        doctors = [Doctor]()
-        for ( var i = 0; i < names.count; i++ ) {
-            var doctor = Doctor()
-            doctor.name = names[i]
-            doctors!.append( doctor )
-        }
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        doctors = [Doctor]()
+        for ( var i = 0; i < events!.count; i++ ) {
+            var e = events![ i ]
+            for ( var j = 0; j < e.projects.count; j++ ) {
+                var d = Doctor( p:e.projects[j])
+                doctors!.append( d )
+            }
+        }
         
     }
 
@@ -44,7 +49,7 @@ class DoctorTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 5
+        return doctors!.count
     }
 
     
@@ -60,14 +65,15 @@ class DoctorTableViewController: UITableViewController {
     }
     
     
-    /*
-    // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        var destVc = segue.destinationViewController as DonateViewController
+        var event = events![0]
+        destVc.project = event.projects[0] // XXX I'm just hard-coding the first one, but you should send in the one you want!
+        
     }
-    */
+    
 
 }

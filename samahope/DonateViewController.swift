@@ -8,9 +8,13 @@
 
 import UIKit
 import PassKit
+
 class DonateViewController: UIViewController, UITextFieldDelegate {
+    var project: Project? // XXX previous controller must set this first!
+    
+    var treatment: Treatment? // we use treatment instead of project
+    
     var selectedAmount: Int?
-    var treatment: Treatment?
 
     @IBOutlet weak var fullAmountLabel: UILabel!
     @IBOutlet weak var completeAmountLabel: UILabel!
@@ -32,19 +36,23 @@ class DonateViewController: UIViewController, UITextFieldDelegate {
         selectedAmount = treatment!.cost! / 2
         unHighlightAll()
         halfView.backgroundColor = highlightColor
-        
+        customTextField.resignFirstResponder()
+
     }
     
     @IBAction func onFullTap(sender: AnyObject) {
         selectedAmount = treatment!.cost!
         unHighlightAll()
         fullView.backgroundColor = highlightColor
-        
+        customTextField.resignFirstResponder()
+
     }
     @IBAction func onCompleteTap(sender: AnyObject) {
         selectedAmount = treatment!.amountNeeded!
         unHighlightAll()
         completeView.backgroundColor = highlightColor
+        customTextField.resignFirstResponder()
+
     }
     func unHighlightAll()
     {
@@ -79,10 +87,12 @@ class DonateViewController: UIViewController, UITextFieldDelegate {
         request.countryCode = "US"
         request.currencyCode = "USD"
         request.paymentSummaryItems = [
-            PKPaymentSummaryItem(label: "SamaHope", amount: NSDecimalNumber(integer:selectedAmount!) )
+            PKPaymentSummaryItem(label: project!.doctorName!, amount: NSDecimalNumber(integer:selectedAmount!)),
+            PKPaymentSummaryItem(label: "samaHope", amount: NSDecimalNumber(integer:selectedAmount!) )
+            
         ]
         
-        let applePayController = PKPaymentAuthorizationViewController(paymentRequest: request)
+        let applePayController = STPTestPaymentAuthorizationViewController(paymentRequest: request)
         applePayController.delegate = self
 
         self.presentViewController(applePayController, animated: true, completion: nil)
@@ -91,6 +101,10 @@ class DonateViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         treatment = Treatment()
+        treatment!.cost = 555
+        treatment!.amountFunded = 222 //(project!.totalAmount! as String).toInt()
+        treatment!.amountNeeded = 999 //(project!.amountNeeded! as String).toInt()
+        
         selectedAmount = Int(0)
         // Do any additional setup after loading the view.
         println( "DonateVC: viewDidLoad")
@@ -98,8 +112,6 @@ class DonateViewController: UIViewController, UITextFieldDelegate {
         customTextField.returnKeyType = UIReturnKeyType.Done
         customTextField.delegate = self
         unHighlightAll()
-        
-        
         
     }
 
